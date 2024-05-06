@@ -111,7 +111,7 @@ Column  19      Type (I) *
                  4 - Variable phase angle for MW control (phase shifter)
 Columns 20-29   Branch resistance R, per unit (F) *
 Columns 30-40   Branch reactance X, per unit (F) * No zero impedance lines
-Columns 41-50   Line charging B, per unit (F) * (total line charging, +B)
+Columns 41-50   Line arginchg B, per unit (F) * (total line charging, +B)
 Columns 51-55   Line MVA rating No 1 (I) Left justify!
 Columns 57-61   Line MVA rating No 2 (I) Left justify!
 Columns 63-67   Line MVA rating No 3 (I) Left justify!
