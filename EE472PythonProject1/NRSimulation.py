@@ -6,7 +6,7 @@ def Simulate(YBUS, SlackBara, PVBaras, PQBaras, MAXITERATION, EPSILON, HotStartF
     ################################################################################ Newton Raphsen method ################################################################################
     # flat start conditions
     flatStartVoltageMagnitude = SlackBara.FinalVoltage
-    flatStartAngle = SlackBara.FinalAngle * mat.pi / 180
+    flatStartAngle = SlackBara.FinalAngle
 
     busCounter = len(PVBaras) + len(PQBaras) + 1
     epsilon = EPSILON
@@ -14,6 +14,8 @@ def Simulate(YBUS, SlackBara, PVBaras, PQBaras, MAXITERATION, EPSILON, HotStartF
     # creating the voltage and angle vectors
     currentVoltages = np.ones((busCounter, 1)) * flatStartVoltageMagnitude
     currentAngles = np.ones((busCounter, 1)) * flatStartAngle
+
+    print(" FLAT START ANGLE: " + str(SlackBara.FinalAngle))
 
     # assign PV bara voltages from data
     for PVbarainfo in PVBaras:

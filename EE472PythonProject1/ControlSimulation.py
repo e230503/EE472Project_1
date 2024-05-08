@@ -29,7 +29,7 @@ def Control(currentVoltages, currentAngles, SlackBara, PVBaras, PQBaras):
     indices = np.where(differenceVoltages > 1e-2)
 
     # Print the indices where the difference exceeds the threshold voltages
-    print("Indices where the difference exceeds 1e-2:")
+    print("Indices where the difference exceeds (for voltages) 1e-2:")
     for index in zip(indices[0]):
         IsThereError = True
         print("index: " + str(index) + " calculated voltage: " + str(currentVoltages[index]) + " real voltage: " + str(
@@ -42,7 +42,7 @@ def Control(currentVoltages, currentAngles, SlackBara, PVBaras, PQBaras):
     indices = np.where(differenceAngles > 1e-0)
 
     # Print the indices where the difference exceeds the threshold voltages
-    print("Indices where the difference exceeds 1e-0:")
+    print("Indices where the difference exceeds (for angles) 1e-0:")
     for index in zip(indices[0]):
         IsThereError = True
         print("index: " + str(index) + " calculated angle: " + str(

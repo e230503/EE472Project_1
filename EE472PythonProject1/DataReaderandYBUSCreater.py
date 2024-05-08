@@ -38,6 +38,7 @@ def Read(cdfDirectory):
             for word in words:
                 if word.isdigit():  # Check if the word is numeric
                     TotalNumberOfBus = int(word)
+                    print(TotalNumberOfBus)
                     break
 
             YBUS = np.zeros((TotalNumberOfBus, TotalNumberOfBus), dtype=np.complex128)
@@ -206,22 +207,7 @@ def Read(cdfDirectory):
     plt.ylabel('Row Index')
     plt.show()
 
-    TotalP = 0
-    TotalQ = 0
 
-    TotalP = TotalP + SlackBara.GenerationP
-    TotalQ = TotalQ + SlackBara.GenerationQ - SlackBara.LoadQ
-
-    for PVbara in PVBaras:
-        TotalP = TotalP + PVbara.GenerationP
-        TotalQ = TotalQ + PVbara.GenerationQ - PVbara.LoadQ
-    for PQBara in PQBaras:
-        TotalP = TotalP - PQBara.LoadP
-        TotalQ = TotalQ + PQBara.GenerationQ - PQBara.LoadQ
-
-    print("-----------------------------------------------------")
-    print("TotalP: " + str(TotalP) + " TotalQ: " + str(TotalQ))
-    print("-----------------------------------------------------")
 
 
     return YBUS, SlackBara, PVBaras, PQBaras
