@@ -1,6 +1,7 @@
 import Constants as const
 import numpy as np
 import cmath as mat
+import matplotlib.pyplot as plt
 
 def Read(cdfDirectory):
 
@@ -181,5 +182,46 @@ def Read(cdfDirectory):
             YBUS[j, j] += 1 / impedance + halfOfBranchLineSusceptance
 
         previousLineDataHolderForGettingPowerBase = line
+
+    magnitudes = np.abs(YBUS)
+
+    marker_size = 1
+    if(busCounter < 51):
+        marker_size = 6
+    elif(busCounter < 101):
+        marker_size = 5
+    elif(busCounter < 151):
+        marker_size = 4
+    elif(busCounter < 201):
+        marker_size = 3
+    elif(busCounter < 251):
+        marker_size = 2
+
+
+    # Plot the sparsity pattern
+    plt.figure(figsize=(6,8))
+    plt.spy(magnitudes, markersize = marker_size)
+    plt.title('Sparsity Pattern of YBUS Magnitudes for ' + cdfDirectory[0:-4])
+    plt.xlabel('Column Index')
+    plt.ylabel('Row Index')
+    plt.show()
+
+    TotalP = 0
+    TotalQ = 0
+
+    TotalP = TotalP + SlackBara.GenerationP
+    TotalQ = TotalQ + SlackBara.GenerationQ - SlackBara.LoadQ
+
+    for PVbara in PVBaras:
+        TotalP = TotalP + PVbara.GenerationP
+        TotalQ = TotalQ + PVbara.GenerationQ - PVbara.LoadQ
+    for PQBara in PQBaras:
+        TotalP = TotalP - PQBara.LoadP
+        TotalQ = TotalQ + PQBara.GenerationQ - PQBara.LoadQ
+
+    print("-----------------------------------------------------")
+    print("TotalP: " + str(TotalP) + " TotalQ: " + str(TotalQ))
+    print("-----------------------------------------------------")
+
 
     return YBUS, SlackBara, PVBaras, PQBaras

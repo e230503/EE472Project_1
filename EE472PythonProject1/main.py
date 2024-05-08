@@ -1,6 +1,8 @@
 import DataReaderandYBUSCreater as R
 import NRSimulation as S
 import ControlSimulation as C
+import time
+
 
 def Run(directory,MAXITERATION, EPSILON):
     # reading data and creating YBUS also the type of the baras
@@ -12,7 +14,16 @@ def Run(directory,MAXITERATION, EPSILON):
 
 
 if __name__ == "__main__":
+    start_time = time.time()
+
     Run("ieee57cdf.txt", 25, 5e-13)
+
+    end_time = time.time()
+
+    execution_time = end_time - start_time
+
+    print("Execution time:", execution_time, "seconds")
+
 
 
 

@@ -103,10 +103,10 @@ def Simulate(YBUS, SlackBara, PVBaras, PQBaras, MAXITERATION, EPSILON, HotStartF
             #     Qis[index] = Qi
             #     index = index + 1
 
-            print("bus index: " + str(dataForBus.BusIndex))
+            # print("bus index: " + str(dataForBus.BusIndex))
             # print("MAXQ: " + str(dataForBus.QorVMaxLimit))
             # print("MINQ: " + str(dataForBus.QorVMinLimit))
-            print("currentQ: " + str(Qi))
+            # print("currentQ: " + str(Qi))
             # print("currentV: " + str(currentVoltages[dataForBus.BusIndex]))
             # print("finalV: " + str(dataForBus.FinalVoltage))
 
