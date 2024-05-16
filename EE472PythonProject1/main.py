@@ -128,7 +128,7 @@ def CalculateLoss(SlackBara ,PVBaras, PQBaras, currentVoltages, currentAngles, Y
     # print("Total Real Power Loss: " + str(TotalP + float(Pi + SlackBara.LoadP)))
     # print("Total Reactive Power Loss: " + str(TotalQ + float(Qi + SlackBara.LoadQ)))
 
-    return TotalP + float(Pi + SlackBara.LoadP), TotalQ + float(Qi + SlackBara.LoadQ)
+    return TotalP + float(Pi), TotalQ + float(Qi)
 def Control(currentVoltages, currentAngles, SlackBara, PVBaras, PQBaras):
     ### creating control mechanism for the simulation ###
     busCounter = len(PVBaras) + len(PQBaras) + 1
@@ -987,7 +987,7 @@ def Run(directory,MAXITERATION, EPSILON):
 
 
 if __name__ == "__main__":
-    Run("ieee57cdf.txt", 100, 5e-13)
+    Run("ieee300cdf.txt", 100, 5e-13)
 
 
 
