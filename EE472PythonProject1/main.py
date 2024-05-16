@@ -987,14 +987,7 @@ def Run(directory,MAXITERATION, EPSILON):
 
 
 if __name__ == "__main__":
-
-
-    Run("ieee300cdf.txt", 100, 5e-13)
-
-
-
-    # execution_time = end_time - start_time
-    # print("Execution time:", execution_time, "seconds")
+    Run("ieee57cdf.txt", 100, 5e-13)
 
 
 
